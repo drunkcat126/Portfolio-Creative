@@ -158,92 +158,89 @@ h2::selection {
   transition: 0.5s ease-in-out;
 }
 
-/* project 1 */
 .card:nth-child(1) {
+  background: url(../assets/project/soundgv.jpg) center center/cover;
+}
+
+.card:nth-child(2) {
   background: url(../assets/project/btnjakim.jpg) center center/cover;
 }
 
-/* Project 2 */
-.card:nth-child(2) {
+.card:nth-child(3) {
   background: url(../assets/project/SC.jpg) center center/cover;
 }
 
 /* Project 3 */
-.card:nth-child(3) {
+.card:nth-child(4) {
   background: url(../assets/project/GR.jpg) center center/cover;
 }
 
 /* Project 4 */
-.card:nth-child(4) {
+.card:nth-child(5) {
   background: url(../assets/project/PCFVOL1.jpg) center center/cover;
 }
 
 /* Project 5 */
-.card:nth-child(5) {
+.card:nth-child(6) {
   background: url(../assets/project/PCFVOL2.jpg) center center/cover;
 }
 
 /* Project 6 */
-.card:nth-child(6) {
+.card:nth-child(7) {
   background: url(../assets/project/dina.jpg) center center/cover;
 }
 
 /* Project 7 */
-.card:nth-child(7) {
+.card:nth-child(8) {
   background: url(../assets/project/magno.jpg) center center/cover;
 }
 
 /* Project 8 */
-.card:nth-child(8) {
+.card:nth-child(9) {
   background: url(../assets/project/IndiaEmb.jpg) center center/cover;
 }
 
 /* Project 9 */
-.card:nth-child(9) {
+.card:nth-child(10) {
   background: url(../assets/project/amartha.jpg) center center/cover;
 }
 
 /* Project 10 */
-.card:nth-child(10) {
+.card:nth-child(11) {
   background: url(../assets/project/mnkbme.jpg) center center/cover;
 }
 
 /* Project 11 */
-.card:nth-child(11) {
+.card:nth-child(12) {
   background: url(../assets/project/indofringe.jpg) center center/cover;
 }
 
 /* Project 12 */
-.card:nth-child(12) {
+.card:nth-child(13) {
   background: url(../assets/project/headphone.PNG) center center/cover;
 }
 
 /* Project 13 */
-.card:nth-child(13) {
+.card:nth-child(14) {
   background: url(../assets/project/ngopsi.png) center center/cover;
 }
 
 /* Project 14 */
-.card:nth-child(14) {
+.card:nth-child(15) {
   background: url(../assets/project/FEED.png) center center/cover;
 }
 
 /* Project 15 */
-.card:nth-child(15) {
+.card:nth-child(16) {
   background: url(../assets/project/MEDIARNA.png) center center/cover;
 }
 
 /* Project 16 */
-.card:nth-child(16) {
+.card:nth-child(17) {
   background: url(../assets/project/sicaskal.PNG) center center/cover;
 }
 
 /* Project 17 */
-.card:nth-child(17) {
-  background: url(../assets/project/trackmy.PNG) center center/cover;
-}
-
-/* Project 18 */
 .card:nth-child(18) {
-  background: url(../assets/project/teamhindia.jpg) center center/cover;
+  background: url(../assets/project/trackmy.PNG) center center/cover;
 }
