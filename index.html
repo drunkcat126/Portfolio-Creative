@@ -123,17 +123,26 @@
     <section id="projects" class="project-container container">
       <div class="division"></div>
       <div class="content-text">
-        <h2>My Projects</h2>
-        <h3>2024-2025</h3>
-      </div>
+        <h2>Recent Projects</h2>
+        </div>
+      
       <div class="filter-controls">
-        <ul class="filter-list">
-          <li><button class="btn btn-filter active" data-filter="all">All</button></li>
-          <li><button class="btn btn-filter" data-filter="photography">Photography</button></li>
-          <li><button class="btn btn-filter" data-filter="video">Videography</button></li>
-          <li><button class="btn btn-filter" data-filter="design">Design</button></li>
-          <li><button class="btn btn-filter" data-filter="web">Web & UI/UX</button></li>
-        </ul>
+        
+        <div class="custom-select-wrapper">
+          <div class="custom-select-trigger" tabindex="0">
+            <span class="trigger-text">All Projects</span>
+            <div class="arrow"></div> </div>
+          <ul class="custom-options">
+            <li class="custom-option" data-value="all">All Projects</li>
+            <li class="custom-option" data-value="photography">Photography</li>
+            <li class="custom-option" data-value="video">Videography</li>
+            <li class="custom-option" data-value="design">Design</li>
+            <li class="custom-option" data-value="web">Web & UI/UX</li>
+          </ul>
+        </div>
+        
+        <span class="filter-year"><h2>2025</h2></span>
+        
       </div>
       <article class="project">
         
