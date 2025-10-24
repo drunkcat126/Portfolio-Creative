@@ -58,39 +58,58 @@ window.addEventListener('scroll', function() {
   }
 });
 
+// --- IMPROVED SHOW MORE/LESS SCRIPT ---
 document.addEventListener('DOMContentLoaded', function() {
     const seeMoreBtn = document.getElementById('see-more-btn');
     if (!seeMoreBtn) {
-        console.log('Tombol Show More tidak ditemukan!');
+        // console.log('Tombol Show More tidak ditemukan!');
         return;
     }
     
-    const projectCards = document.querySelectorAll('.project .card');
-    console.log('Jumlah project cards:', projectCards.length);
+    // Target wrapper link, BUKAN .card
+    const projectCards = document.querySelectorAll('.project .card-link-wrapper'); 
+    const projectsContainer = document.getElementById('projects'); // Get the parent section
+    const projectsToShowDefault = 9; // Tampilkan 9 proyek (3 baris)
     
-    // Sembunyikan card setelah ke-6
-    for (let i = 9; i < projectCards.length; i++) {
-        projectCards[i].style.display = 'none';
+    // console.log('Jumlah project cards:', projectCards.length);
+    
+    // Sembunyikan card setelah jumlah default
+    if (projectCards.length > projectsToShowDefault) {
+        for (let i = projectsToShowDefault; i < projectCards.length; i++) {
+            projectCards[i].style.display = 'none';
+        }
+    } else {
+        // Jika total proyek lebih sedikit, sembunyikan tombol "Show More"
+        seeMoreBtn.style.display = 'none';
+        return;
     }
     
     seeMoreBtn.addEventListener('click', function(e) {
         e.preventDefault();
         
-        const hiddenCards = document.querySelectorAll('.project .card[style="display: none;"]');
-        const visibleCards = document.querySelectorAll('.project .card[style=""]');
+        // Cari card yang tersembunyi
+        const hiddenCards = document.querySelectorAll('.project .card-link-wrapper[style*="display: none;"]');
         
         if (hiddenCards.length > 0) {
             // Tampilkan semua card yang tersembunyi
             hiddenCards.forEach(card => {
-                card.style.display = '';
+                card.style.display = 'block'; 
             });
-            seeMoreBtn.innerHTML = 'Show Less <i class="fas fa-arrow-up"></i>';
+            seeMoreBtn.innerHTML = 'Show Less <i class="fas fa-arrow-down"></i>';
+            seeMoreBtn.classList.add('expanded');
         } else {
-            // Sembunyikan card setelah ke-6
-            for (let i = 9; i < projectCards.length; i++) {
+            // Sembunyikan card setelah jumlah default
+            for (let i = projectsToShowDefault; i < projectCards.length; i++) {
                 projectCards[i].style.display = 'none';
             }
             seeMoreBtn.innerHTML = 'Show More <i class="fas fa-arrow-down"></i>';
+            seeMoreBtn.classList.remove('expanded');
+            
+            // IMPROVEMENT: Scroll ke atas bagian "My Projects" saat "Show Less" diklik
+            if (projectsContainer) {
+                projectsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     });
 });
+// (BUG FIX: Kurung kurawal '}' ekstra di akhir file telah dihapus)

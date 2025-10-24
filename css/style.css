@@ -115,7 +115,7 @@ body {
 
 .navbar.scrolled {
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); --- INI DIHAPUS UNTUK PERFORMA */
 }
 
 .navbar .container {
@@ -179,7 +179,8 @@ body {
 .profile-image {
   width: 200px;
   border-radius: 50%;
-  animation: bounce 1s infinite alternate;
+  /* HAPUS ANIMASI UNTUK PERFORMA LEBIH BAIK */
+  /* animation: bounce 1s infinite alternate; */ 
 }
 
 @keyframes bounce {
@@ -203,24 +204,21 @@ body {
 #skills-icon {
     padding: 80px 0;
     text-align: center;
-    /* Mengambil warna latar belakang dari variabel tema */
     background-color: var(--bg-primary); 
 }
 
 #skills-icon h2 {
-    /* GANTI: Gunakan variabel --text-color agar berubah putih di mode gelap dan hitam di mode terang */
     color: var(--text-color); 
-    
     font-size: 2.5em;
     margin-bottom: 50px;
-    transition: color 0.5s; /* Tambahkan transisi agar perubahan warna terlihat halus */
+    transition: color 0.5s;
 }
 
 .icon-skills-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px; /* Jarak antar item */
+    gap: 30px;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -230,25 +228,22 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 120px; /* Ukuran standar kotak skill */
+    width: 120px;
     padding: 15px;
     border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .skill-item:hover {
-    /* Sudah benar */
     transform: translateY(-5px);
 }
 
 .skill-icon {
-    font-size: 2.5em; /* Ukuran Ikon */
+    font-size: 2.5em;
     margin-bottom: 10px;
-    /* Warna diatur secara inline di HTML untuk mencocokkan brand logo */
 }
 
 .skill-name {
-    /* Sudah benar, akan menggunakan --text-color yang berubah sesuai tema */
     color: var(--text-color);
     font-size: 1em;
     font-weight: 500;
@@ -256,18 +251,16 @@ body {
 }
 
 .brand-logo-img {
-    /* Ukuran diset 2.5em agar sama dengan .skill-icon */
     width: 2.5em; 
     height: 2.5em; 
     margin-bottom: 10px;
-    object-fit: contain; /* Pastikan logo tidak terdistorsi */
-    transition: filter 0.3s; /* Tambahkan transisi jika SVG perlu diinvert */
+    object-fit: contain;
+    transition: filter 0.3s;
 }
 
-/* Media Query untuk Tampilan Mobile */
 @media (max-width: 600px) {
     .skill-item {
-        width: 100px; /* Ukuran sedikit lebih kecil di mobile */
+        width: 100px;
     }
     .skill-icon {
         font-size: 2em;
@@ -307,18 +300,23 @@ body {
 .project-info {
   display: flex;
   justify-content: space-between;
-  opacity: 0;
-  position: relative;
-  transition: 0.5s ease-in-out;
+  align-items: flex-end; /* Memastikan ikon globe di kanan bawah */
+  
+  /* --- STYLING LAMA DIHAPUS DARI SINI --- */
+  /* opacity: 0; */
+  /* position: relative; */
+  /* transition: 0.5s ease-in-out; */
 }
 
 .project-bio {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  position: relative;
-  top: 160px;
-  left: 10px;
+  
+  /* --- POSITIONING LAMA DIHAPUS --- */
+  /* position: relative; */
+  /* top: 160px; */
+  /* left: 10px; */
 }
 
 /* Footer */
@@ -522,4 +520,35 @@ body {
     .project {
         grid-template-columns: 1fr;
     }
+}
+
+/* --- KODE TAMBAHAN UNTUK PERBAIKAN --- */
+
+.card-link-wrapper {
+  display: block; 
+  text-decoration: none;
+  color: inherit; 
+  border-radius: 5px; 
+  overflow: hidden; /* PENTING: Menjaga .card:hover agar tidak keluar */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* PERBAIKAN: Memastikan wrapper punya posisi untuk .project-info */
+  position: relative; 
+}
+
+.card-link-wrapper:hover {
+  /* PERBAIKAN: Hapus transformY, biarkan shadow */
+  /* transform: translateY(-5px); */
+  box-shadow: var(--shadow);
+}
+
+.project-info .project-link-icon {
+  color: #ffffff;
+  transition: 0.25s ease-in-out;
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+}
+
+.project-info .project-link-icon:hover {
+  color: var(--primary-color);
 }
