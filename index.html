@@ -124,12 +124,20 @@
       <div class="division"></div>
       <div class="content-text">
         <h2>My Projects</h2>
-        <h4>2024-2025</h4>
+        <h3>2024-2025</h3>
       </div>
-
+      <div class="filter-controls">
+        <ul class="filter-list">
+          <li><button class="btn btn-filter active" data-filter="all">All</button></li>
+          <li><button class="btn btn-filter" data-filter="photography">Photography</button></li>
+          <li><button class="btn btn-filter" data-filter="video">Videography</button></li>
+          <li><button class="btn btn-filter" data-filter="design">Design</button></li>
+          <li><button class="btn btn-filter" data-filter="web">Web & UI/UX</button></li>
+        </ul>
+      </div>
       <article class="project">
         
-        <a href="https://www.instagram.com/soundgroovefestival" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/soundgroovefestival" target="_blank" class="card-link-wrapper" data-category="photography">
          <div class="card" style="background-image: url('assets/project/soundgv.jpg');">
           <div class="project-info">
             <div class="project-bio">
@@ -141,7 +149,7 @@
          </div>
         </a>
         
-        <a href="https://www.instagram.com/btn_jakim/" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/btn_jakim/" target="_blank" class="card-link-wrapper" data-category="photography">
         <div class="card" style="background-image: url('assets/project/btnjakim.jpg');">
           <div class="project-info">
             <div class="project-bio">
@@ -153,7 +161,7 @@
         </div>
         </a>
 
-        <a href="https://www.instagram.com/socialchic.id/" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/socialchic.id/" target="_blank" class="card-link-wrapper" data-category="video photography">
         <div class="card" style="background-image: url('assets/project/SC25.jpg');">
           <div class="project-info">
             <div class="project-bio">
@@ -165,7 +173,7 @@
         </div>
         </a>
 
-        <a href="https://www.instagram.com/guardian_id/" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/guardian_id/" target="_blank" class="card-link-wrapper" data-category="photography">
         <div class="card" style="background-image: url('assets/project/GR25.jpg');">
           <div class="project-info">
             <div class="project-bio">
@@ -177,7 +185,7 @@
         </div>
         </a>
 
-        <a href="https://www.instagram.com/persembahancinta/" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/persembahancinta/" target="_blank" class="card-link-wrapper" data-category="photography">
         <div class="card" style="background-image: url('assets/project/PCFVOL1.jpg');">
           <div class="project-info">
             <div class="project-bio">
@@ -189,7 +197,7 @@
         </div>
         </a>
 
-        <a href="https://www.instagram.com/persembahancinta/" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/persembahancinta/" target="_blank" class="card-link-wrapper" data-category="photography">
         <div class="card" style="background-image: url('assets/project/PCFVOL2.jpg');">
           <div class="project-info">
             <div class="project-bio">
@@ -201,41 +209,7 @@
         </div>
         </a>
 
-        <div class="card-link-wrapper"> <div class="card" style="background-image: url('assets/project/dina.jpg');">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Birthday Party Dina</h3>
-              <p>Video & Photography</p>
-            </div>
-          </div>
-        </div>
-        </div>
-
-        <a href="https://www.instagram.com/magnolia.celebration/" target="_blank" class="card-link-wrapper">
-        <div class="card" style="background-image: url('assets/project/magno.jpg');">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Magnolia Celebration Band</h3>
-              <p>Photography</p>
-            </div>
-            <span class="project-link-icon"><i class="fas fa-globe"></i></span>
-          </div>
-        </div>
-        </a>
-
-         <a href="https://www.indianembassyjakarta.gov.in/" target="_blank" class="card-link-wrapper">
-        <div class="card" style="background-image: url('assets/project/IndiaEmb.jpg');">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Embassy of India</h3>
-              <p>Photography</p>
-            </div>
-            <span class="project-link-icon"><i class="fas fa-globe"></i></span>
-          </div>
-        </div>
-        </a>
-
-         <a href="https://www.instagram.com/amartha10xrun/?hl=id" target="_blank" class="card-link-wrapper">
+		<a href="https://www.instagram.com/amartha10xrun/?hl=id" target="_blank" class="card-link-wrapper" data-category="photography">
         <div class="card" style="background-image: url('assets/project/amartha.jpg');">
           <div class="project-info">
             <div class="project-bio">
@@ -247,7 +221,41 @@
         </div>
         </a>
 
-        <a href="https://mnk.co.id/" target="_blank" class="card-link-wrapper">
+        <a href="https://www.indianembassyjakarta.gov.in/" target="_blank" class="card-link-wrapper" data-category="photography">
+        <div class="card" style="background-image: url('assets/project/IndiaEmb.jpg');">
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Embassy of India</h3>
+              <p>Photography</p>
+            </div>
+            <span class="project-link-icon"><i class="fas fa-globe"></i></span>
+          </div>
+        </div>
+        </a>
+
+        <div class="card-link-wrapper" data-category="video photography"> <div class="card" style="background-image: url('assets/project/dina.jpg');">
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Birthday Party Dina</h3>
+              <p>Video & Photography</p>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <a href="https://www.instagram.com/magnolia.celebration/" target="_blank" class="card-link-wrapper" data-category="photography">
+        <div class="card" style="background-image: url('assets/project/magno.jpg');">
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Magnolia Celebration Band</h3>
+              <p>Photography</p>
+            </div>
+            <span class="project-link-icon"><i class="fas fa-globe"></i></span>
+          </div>
+        </div>
+        </a>
+
+        <a href="https://mnk.co.id/" target="_blank" class="card-link-wrapper" data-category="video photography">
          <div class="card" style="background-image: url('assets/project/mnkbme.jpg');">
           <div class="project-info">
             <div class="project-bio">
@@ -259,7 +267,7 @@
         </div>
         </a>
 
-        <a href="https://www.instagram.com/indofringe/" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/indofringe/" target="_blank" class="card-link-wrapper" data-category="video photography">
          <div class="card" style="background-image: url('assets/project/indofringe.jpg');">
           <div class="project-info">
             <div class="project-bio">
@@ -271,7 +279,19 @@
         </div>
         </a>
 
-        <a href="https://drive.google.com/file/d/1R3kdN353x6fFliC0qd5kRtgZGSbphmLW/view?usp=sharing" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/amartha10xrun/?hl=id" target="_blank" class="card-link-wrapper" data-category="photography">
+        <div class="card" style="background-image: url('assets/project/TH.jpg');">
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Team Hindia Karaoke Vol 1-3</h3>
+              <p>Photography</p>
+            </div>
+            <span class="project-link-icon"><i class="fas fa-globe"></i></span>
+          </div>
+        </div>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1R3kdN353x6fFliC0qd5kRtgZGSbphmLW/view?usp=sharing" target="_blank" class="card-link-wrapper" data-category="web design">
          <div class="card" style="background-image: url('assets/project/headphone.PNG');">
           <div class="project-info">
             <div class="project-bio">
@@ -283,19 +303,7 @@
         </div>
         </a>
 
-        <a href="https://www.instagram.com/infosys.kwc" target="_blank" class="card-link-wrapper">
-        <div class="card" style="background-image: url('assets/project/ngopsi.png');">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Ngopsi</h3>
-              <p>Logo Design</p>
-            </div>
-            <span class="project-link-icon"><i class="fas fa-globe"></i></span>
-          </div>
-        </div>
-        </a>
-
-        <a href="https://www.instagram.com/infosys.kwc" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/infosys.kwc" target="_blank" class="card-link-wrapper" data-category="design">
         <div class="card" style="background-image: url('assets/project/FEED.webp');">
           <div class="project-info">
             <div class="project-bio">
@@ -307,7 +315,19 @@
         </div>
         </a>
 
-        <a href="https://www.tiktok.com/@mediarna" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/infosys.kwc/reels/?hl=id" target="_blank" class="card-link-wrapper" data-category="design">
+        <div class="card" style="background-image: url('assets/project/ngopsiig.PNG');">
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Ngopsi 2024</h3>
+              <p>Social Media Content Creator & Manager</p>
+            </div>
+            <span class="project-link-icon"><i class="fas fa-globe"></i></span>
+          </div>
+        </div>
+        </a>
+
+        <a href="https://www.tiktok.com/@mediarna" target="_blank" class="card-link-wrapper" data-category="design">
         <div class="card" style="background-image: url('assets/project/MEDIARNA.png');">
           <div class="project-info">
             <div class="project-bio">
@@ -319,19 +339,19 @@
         </div>
         </a>
 
-        <a href="https://www.instagram.com/si_caskal/reels/?hl=id" target="_blank" class="card-link-wrapper">
+        <a href="https://www.instagram.com/si_caskal/reels/?hl=id" target="_blank" class="card-link-wrapper" data-category="design">
         <div class="card" style="background-image: url('assets/project/sicaskal.png');">
           <div class="project-info">
             <div class="project-bio">
               <h3>SI Caskal Festival</h3>
-              <p>Social Media Content Creator</p>
+              <p>Social Media Content Creator & Manager</p>
             </div>
             <span class="project-link-icon"><i class="fas fa-globe"></i></span>
           </div>
         </div>
         </a>
 
-        <a href="https://drunkcat126.github.io/MyTrack-Finance-/" target="_blank" class="card-link-wrapper">
+        <a href="https://drunkcat126.github.io/MyTrack-Finance-/" target="_blank" class="card-link-wrapper" data-category="web">
         <div class="card" style="background-image: url('assets/project/trackmy.png');">
           <div class="project-info">
             <div class="project-bio">

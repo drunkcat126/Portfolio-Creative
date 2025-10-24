@@ -10,7 +10,6 @@ h2::selection {
   background: var(--primary-color);
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.9rem;
@@ -30,29 +29,23 @@ h2::selection {
     color: #000000; 
     padding: 12px 25px; 
     border: none;
-    border-radius: 30px; /* Sesuaikan dengan tombol RESUME */
+    border-radius: 30px;
     text-transform: uppercase;
-    font-weight: 600; /* Sesuaikan dengan font weight RESUME */
+    font-weight: 600;
     cursor: pointer;
-    text-decoration: none; /* Penting jika menggunakan tag <a> */
-    
-    /* Tambahkan transisi untuk animasi halus saat hover/ganti tema */
+    text-decoration: none; 
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
-/* Efek Hover (opsional) */
 .btn-connect:hover {
-    /* Membuat warna kuning sedikit lebih gelap atau terang saat di-hover */
-    background-color: var(--secondary-color); /* Anda bisa menggunakan variabel sekunder Anda */
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
 }
 
-/* add hover to resume button */
 .btn-primary:hover {
   background: var(--secondary-color);
 }
 
-/* Dark mode toggle */
 #switch {
   display: none;
 }
@@ -81,7 +74,6 @@ h2::selection {
   transform: rotate(100deg);
 }
 
-/* Header Container */
 .header-container {
   display: flex;
   flex-direction: column;
@@ -124,36 +116,29 @@ h2::selection {
   max-width: 700px;
 }
 
-/* --- PERBAIKAN PADA .card dan .project-info --- */
 .card {
   padding: 1rem;
   background: var(--card-background);
   color: #ffffff;
   border-radius: 5px;
   cursor: pointer;
-  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  
-  /* PERBAIKAN: Transisi untuk efek zoom */
   transition: transform 0.4s ease-in-out;
 }
 
 .card:hover {
-  /* PERBAIKAN: Mengganti shadow gelap dengan zoom */
   transform: scale(1.03);
 }
 
 .card:hover .project-info {
   opacity: 1;
-  /* PERBAIKAN: Gradien agar teks terbaca jelas */
   background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
 }
 
 .project-info {
-  /* PERBAIKAN: Reposisi ke bawah card */
   position: absolute;
   bottom: 0;
   left: 0;

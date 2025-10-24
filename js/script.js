@@ -8,9 +8,7 @@ function mobileMenu() {
     navMenu.classList.toggle("active");
 }
 
-// Close navbar when link is clicked
 const navLink = document.querySelectorAll(".nav-link");
-
 navLink.forEach((n) => n.addEventListener("click", closeMenu));
 
 function closeMenu() {
@@ -18,7 +16,6 @@ function closeMenu() {
     navMenu.classList.remove("active");
 }
 
-// Event Listeners: Handling toggle event
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 
 function switchTheme(e) {
@@ -33,7 +30,6 @@ function switchTheme(e) {
 
 toggleSwitch.addEventListener("change", switchTheme, false);
 
-// Save user preference on load
 const currentTheme = localStorage.getItem("theme");
 if (currentTheme) {
     document.documentElement.setAttribute("data-theme", currentTheme);
@@ -42,7 +38,6 @@ if (currentTheme) {
     }
 }
 
-// Adding date
 let myDate = document.querySelector("#datee");
 if (myDate) {
     const yes = new Date().getFullYear();
@@ -58,58 +53,115 @@ window.addEventListener('scroll', function() {
   }
 });
 
-// --- IMPROVED SHOW MORE/LESS SCRIPT ---
 document.addEventListener('DOMContentLoaded', function() {
+
+    const profileImage = document.querySelector('.profile-image');
+    if (profileImage) {
+        profileImage.addEventListener('click', function() {
+            this.classList.toggle('zoomed');
+        });
+    }
+
     const seeMoreBtn = document.getElementById('see-more-btn');
-    if (!seeMoreBtn) {
-        // console.log('Tombol Show More tidak ditemukan!');
-        return;
-    }
+    const projectCards = document.querySelectorAll('.project .card-link-wrapper');
+    const projectsContainer = document.getElementById('projects');
+    const filterButtons = document.querySelectorAll('.btn-filter');
     
-    // Target wrapper link, BUKAN .card
-    const projectCards = document.querySelectorAll('.project .card-link-wrapper'); 
-    const projectsContainer = document.getElementById('projects'); // Get the parent section
-    const projectsToShowDefault = 9; // Tampilkan 9 proyek (3 baris)
-    
-    // console.log('Jumlah project cards:', projectCards.length);
-    
-    // Sembunyikan card setelah jumlah default
-    if (projectCards.length > projectsToShowDefault) {
-        for (let i = projectsToShowDefault; i < projectCards.length; i++) {
-            projectCards[i].style.display = 'none';
-        }
-    } else {
-        // Jika total proyek lebih sedikit, sembunyikan tombol "Show More"
-        seeMoreBtn.style.display = 'none';
-        return;
-    }
-    
-    seeMoreBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Cari card yang tersembunyi
-        const hiddenCards = document.querySelectorAll('.project .card-link-wrapper[style*="display: none;"]');
-        
-        if (hiddenCards.length > 0) {
-            // Tampilkan semua card yang tersembunyi
-            hiddenCards.forEach(card => {
-                card.style.display = 'block'; 
+    const projectsToShowDefault = 9;
+
+    if (seeMoreBtn) {
+        seeMoreBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const activeFilterBtn = document.querySelector('.btn-filter.active');
+            if (!activeFilterBtn) return;
+            
+            const activeFilter = activeFilterBtn.getAttribute('data-filter');
+
+            const allMatchingCards = Array.from(projectCards).filter(card => {
+                const category = card.getAttribute('data-category');
+                return (activeFilter === 'all' || (category && category.includes(activeFilter)));
             });
-            seeMoreBtn.innerHTML = 'Show Less <i class="fas fa-arrow-down"></i>';
-            seeMoreBtn.classList.add('expanded');
-        } else {
-            // Sembunyikan card setelah jumlah default
+
+            const hiddenByLimitCards = allMatchingCards.filter(card => card.style.display === 'none');
+
+            if (hiddenByLimitCards.length > 0) {
+                hiddenByLimitCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                seeMoreBtn.innerHTML = 'Show Less <i class="fas fa-arrow-down"></i>';
+                seeMoreBtn.classList.add('expanded');
+            } else {
+                for (let i = projectsToShowDefault; i < allMatchingCards.length; i++) {
+                    allMatchingCards[i].style.display = 'none';
+                }
+                seeMoreBtn.innerHTML = 'Show More <i class="fas fa-arrow-down"></i>';
+                seeMoreBtn.classList.remove('expanded');
+                
+                if (projectsContainer) {
+                    projectsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    }
+
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filterValue = this.getAttribute('data-filter');
+
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                let visibleCardCount = 0;
+
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    const matchesFilter = (filterValue === 'all' || (category && category.includes(filterValue)));
+                    
+                    if (matchesFilter) {
+                        if (visibleCardCount < projectsToShowDefault) {
+                            card.style.display = 'block';
+                            card.classList.add('show');
+                            visibleCardCount++;
+                        } else {
+                            card.style.display = 'none'; 
+                            card.classList.remove('show');
+                        }
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('show');
+                    }
+                });
+
+                if (seeMoreBtn) {
+                    const totalMatchingCards = Array.from(projectCards).filter(card => {
+                        const category = card.getAttribute('data-category');
+                        return (filterValue === 'all' || (category && category.includes(filterValue)));
+                    }).length;
+
+                    if (totalMatchingCards > projectsToShowDefault) {
+                        seeMoreBtn.style.display = 'block';
+                        seeMoreBtn.innerHTML = 'Show More <i class="fas fa-arrow-down"></i>';
+                        seeMoreBtn.classList.remove('expanded');
+                    } else {
+                        seeMoreBtn.style.display = 'none';
+                    }
+                }
+            });
+        });
+    }
+
+    const allButton = document.querySelector('.btn-filter[data-filter="all"]');
+    if (allButton) {
+        allButton.click(); 
+    } else {
+        if (projectCards.length > projectsToShowDefault) {
             for (let i = projectsToShowDefault; i < projectCards.length; i++) {
                 projectCards[i].style.display = 'none';
             }
-            seeMoreBtn.innerHTML = 'Show More <i class="fas fa-arrow-down"></i>';
-            seeMoreBtn.classList.remove('expanded');
-            
-            // IMPROVEMENT: Scroll ke atas bagian "My Projects" saat "Show Less" diklik
-            if (projectsContainer) {
-                projectsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+        } else if (seeMoreBtn) {
+            seeMoreBtn.style.display = 'none';
         }
-    });
+    }
 });
-// (BUG FIX: Kurung kurawal '}' ekstra di akhir file telah dihapus)
