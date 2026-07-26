@@ -1,0 +1,233 @@
+.container {
+  max-width: var(--width-medium);
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+h1::selection,
+h2::selection {
+  color: #111;
+  background: var(--primary-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.8rem;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  transition: 0.3s;
+  border: 2px solid var(--text-color);
+}
+
+.btn-primary {
+  background: var(--card-background);
+  color: var(--text-color);
+}
+
+.btn-primary:hover {
+  background: var(--primary-color);
+  color: #000000;
+  border-color: #000000;
+}
+
+.btn-connect {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    padding: 10px 23px;
+    border: 2px solid var(--text-color);
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none; 
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+.btn-connect:hover {
+    background-color: var(--primary-color);
+    color: #000000;
+    border-color: #000000;
+    transform: translateY(-2px);
+}
+
+#switch {
+  display: none;
+}
+
+.toggle-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  gap: 0;
+}
+
+.toggle-icons > img {
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  width: 30px;
+}
+
+.moon {
+  transform: rotate(10deg);
+}
+
+#switch:checked + .toggle-icons .moon {
+  transform: rotate(250deg);
+}
+
+#switch:checked + .toggle-icons .sun {
+  transform: rotate(100deg);
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+  padding: 1rem;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.header-container > div {
+  margin-top: 1rem;
+}
+
+.content-text {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 0 20px;
+}
+
+.content-text h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.content-text h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.5;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-muted);
+}
+
+.content-text h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-muted);
+}
+
+/* --- PERUBAHAN CARD UNTUK IMAGE OPTIMIZATION --- */
+.card {
+  /* Padding dihapus agar <img> memenuhi card */
+  background: var(--card-background);
+  color: #ffffff;
+  border-radius: 12px;
+  cursor: pointer;
+  
+  position: relative; /* Wajib ada untuk <img> absolute */
+  overflow: hidden;   /* Wajib ada agar <img> tidak bocor keluar rounded corner */
+  
+  height: auto;
+  aspect-ratio: 3 / 2; /* Sesuai yang disepakati sebelumnya */
+}
+
+/* CSS baru untuk <img> di dalam card */
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Di belakang project info */
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Zoom effect pindah ke img */
+.card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.card:hover .project-info {
+  opacity: 1;
+}
+
+.project-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem; 
+  
+  z-index: 2; /* Harus di atas gambar */
+  opacity: 0;
+  
+  /* Background gradient digelapkan sedikit dan dipindah ke sini agar selalu siap saat muncul */
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+  transition: opacity 0.5s ease-in-out;
+}
+
+.float-wa {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: transparent;
+    border: 3px solid var(--text-color); 
+    color: var(--text-color);
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.float-wa:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #000000;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .float-wa {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 600px) {
+    .float-wa {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
